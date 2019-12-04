@@ -1,0 +1,61 @@
+<!doctype html>
+<head>
+<title>Dog Gifs - Giphy API</title>
+<style>body {
+    background-color: black;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+img {
+   width: 200px;
+   height: 200px;
+   padding: 20px;
+}
+
+h1 {
+text-decoration: underline;
+text-align: center;
+   margin: 0;
+}
+h2 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+ </style>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</head>
+
+<body>
+ <h1>Dog Gifs</h1>
+    <h2> Brought to you by Giphy</h2>
+            <div id = "display">
+
+            
+            </div>
+ 
+<script>
+$.getJSON('https://api.giphy.com/v1/gifs/search?q=puppiess&api_key=n4pVAdH0VUnvXvG4yC3uZgAVbsHlb2h9&limit=20', function(data) {
+
+    console.log(data);  
+
+
+   
+    
+    for (var i = 0; i < data.data.length; i++) {
+
+        var  gifs;
+     gifs = data.data[i].images.preview_gif.url;
+
+
+ document.getElementById('display').innerHTML += "  <a href='" +  gifs + "'> <img src ='" + gifs + "'> </a>   '";
+}
+}); 
+</script> 
+</body>
+</html>
